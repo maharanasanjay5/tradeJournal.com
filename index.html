@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade Journal Entry</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { background-color: #f4f4f4; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="date"], input[type="number"], select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .message { margin-top: 20px; padding: 10px; border-radius: 4px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+    <h2>Trade Journal Entry</h2>
+
+    <form action="process_trade.php" method="POST">
+        <label for="symbol">Symbol:</label>
+        <input type="text" id="symbol" name="symbol" required>
+
+        <label for="entry_date">Entry Date:</label>
+        <input type="date" id="entry_date" name="entry_date" required>
+
+        <label for="entry_price">Entry Price:</label>
+        <input type="number" id="entry_price" name="entry_price" step="0.01" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required>
+
+        <label for="broker_name">Broker Name:</label>
+        <input type="text" id="broker_name" name="broker_name">
+
+        <label for="strategy">Strategy:</label>
+        <input type="text" id="strategy" name="strategy">
+
+        <label for="stoploss">Stoploss (Optional):</label>
+        <input type="number" id="stoploss" name="stoploss" step="0.01">
+
+        <input type="submit" value="Submit Trade">
+    </form>
+
+</body>
+</html>
